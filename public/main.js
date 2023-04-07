@@ -10,7 +10,7 @@ function enrolUser() {
 
     console.log(allData)
 
-    fetch("http://localhost:3000/newPlayer", {
+    fetch("https://usg.onrender.com/newPlayer", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -85,7 +85,7 @@ function updateScoreboard() {
 
     allData = {"name": data, "value": window.scrollY}
 
-    fetch("http://localhost:3000/updateScore", {
+    fetch("https://usg.onrender.com/updateScore", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -98,7 +98,7 @@ function updateScoreboard() {
 
 
 window.addEventListener("beforeunload", function(event) {
-    fetch("http://localhost:3000/delPlayer", {
+    fetch("https://usg.onrender.com/delPlayer", {
         method: "DELETE",
         body: JSON.stringify(allData),
         headers: {
@@ -111,7 +111,7 @@ window.addEventListener("beforeunload", function(event) {
 })
 
 function getScoreBoard() {
-    fetch("http://localhost:3000/listScores")
+    fetch("https://usg.onrender.com/listScores")
         .then(response => response.json())
         .then(data => {
 
