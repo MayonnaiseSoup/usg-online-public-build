@@ -15,10 +15,14 @@ app.post("/newPlayer", (req, res) => {
     if (name in scores) {
         res.status(400)
         res.json({ msg: "Error: User already exists!"})
+
+        console.log("Error: A user tried to make a user that already exists!")
     } else {
         scores[name] = 0;
         res.json({ msg: "Success! Check console!" })
-        console.log(scores)
+
+
+        console.log(`New user created: ${name}`)
     }
     
 
@@ -31,6 +35,8 @@ app.delete("/delPlayer", (req, res) => {
     delete scores[name];
 
     res.json({ "msg": "Deleted User" })
+
+    console.log(`User deleted: ${name}`)
 })
 
 app.get("/listScores", (req, res) => {
